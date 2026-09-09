@@ -17,7 +17,7 @@ KYNEX does not silently overwrite source records, treat textual similarity as en
 
 *KYNEX normalizes configured technical attributes, ranks candidates, blocks critical conflicts, preserves source lineage, and routes uncertain cases for expert review.*
 
-**[Quick start](#quick-start) · [Judge walkthrough](#judge-walkthrough) · [How it works](#how-it-works) · [Safety boundary](#safety-boundary) · [Architecture](#architecture) · [Evaluation](#evaluation)**
+**[Quick start](#quick-start) · [Website walkthrough](#website-walkthrough) · [How it works](#how-it-works) · [Safety boundary](#safety-boundary) · [Architecture](#architecture) · [Evaluation](#evaluation)**
 
 ## Why KYNEX
 
@@ -87,7 +87,7 @@ npm run api
 | Frontend cannot reach the API | API process is not running | Start `npm run api` and verify `/api/health` |
 | Protected action is denied | Required-auth mode or insufficient role | Check `.env.local`, token state, and role assignment |
 
-## Judge walkthrough
+## Website walkthrough
 
 ### Reproduce the core behavior in about one minute
 
