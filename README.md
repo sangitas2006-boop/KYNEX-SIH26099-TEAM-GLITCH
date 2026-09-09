@@ -28,7 +28,7 @@ Most catalogue-cleaning workflows treat similarity as a merge decision. KYNEX do
 | Situation | KYNEX response |
 |---|---|
 | Similar wording or configured synonym | Retrieves and ranks candidate identities |
-| Configured unit variation, such as `2 in â†’ DN50 / 50 mm` | Compares typed normalized attributes |
+| Configured unit variation, such as `2 in → DN50 / 50 mm` | Compares typed normalized attributes |
 | Critical mismatch, such as `PN16` versus `PN25` | Blocks publication with `DO_NOT_MERGE` |
 | Missing, ambiguous, or low-margin evidence | Returns `HUMAN_REVIEW_REQUIRED` |
 | Approved expert decision | Creates a controlled exportable mapping |
@@ -107,17 +107,17 @@ npm run api
 
 ```text
 CSV / ERP export
-      â†“
+      ↓
 Schema validation and source-lineage anchor
-      â†“
+      ↓
 Typed attribute extraction and configured normalization
-      â†“
+      ↓
 Candidate retrieval and calibrated ranking
-      â†“
+      ↓
 Deterministic conflict firewall + abstention gate
-      â†“
+      ↓
 Expert review and decision history
-      â†“
+      ↓
 Approved export / Material Passport
 ```
 
@@ -170,7 +170,7 @@ KYNEX is a decision-support and governance prototype, not an autonomous merge en
 
 Supported role hierarchy:
 
-`viewer` â†’ `reviewer` â†’ `material_master_officer` â†’ `admin`
+`viewer` → `reviewer` → `material_master_officer` → `admin`
 
 KYNEX generates a proposed governed identity or cross-reference mapping. It does not create an official national material code, certify engineering interchangeability, or replace the responsible engineer’s approval.
 
@@ -421,3 +421,4 @@ Security concerns should be reported privately through GitHub’s repository sec
 ## License and data policy
 
 No open-source license has been declared yet. Confirm the intended license before distributing the repository publicly. This project is for evaluation and demonstration; do not add confidential CPSE exports, proprietary material masters, credentials, or personal data.
+nal data.
