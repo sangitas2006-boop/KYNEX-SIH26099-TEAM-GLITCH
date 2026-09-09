@@ -58,7 +58,7 @@ export function LoginPage() {
           <div className="auth-story-copy">
             <span className="auth-eyebrow"><ShieldCheck size={14} /> Evidence gate active</span>
             <h1>Make the record understandable before it becomes a decision.</h1>
-            <p>Sign in to continue to your governed workspace, or explore the full KYNEX walkthrough as a guest using controlled demo data.</p>
+            <p>Sign in to continue to your governed workspace, or explore the full KYNEX workflow in a controlled workspace.</p>
           </div>
           <div className="auth-proof-list" aria-label="KYNEX access principles">
             <span><CheckCircle2 size={15} /> Source records stay intact</span>
@@ -107,7 +107,7 @@ export function LoginPage() {
           <button className="button outline auth-guest" onClick={continueAsGuest}>
             Continue as guest <ArrowRight size={16} />
           </button>
-          <p className="auth-guest-note">Full demo workspace · demo data only · publishing and external writes disabled</p>
+          <p className="auth-guest-note">Controlled workspace · source records protected · publishing and external writes disabled</p>
           {!supabaseConfigured && <p className="auth-config-note">Supabase is not connected in this local build yet. Guest mode is available now; sign-in and sign-up will activate when the project variables are configured.</p>}
         </section>
       </div>
