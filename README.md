@@ -172,7 +172,7 @@ Supported role hierarchy:
 
 `viewer` â†’ `reviewer` â†’ `material_master_officer` â†’ `admin`
 
-KYNEX generates a proposed governed identity or cross-reference mapping. It does not create an official national material code, certify engineering interchangeability, or replace the responsible engineerâ€™s approval.
+KYNEX generates a proposed governed identity or cross-reference mapping. It does not create an official national material code, certify engineering interchangeability, or replace the responsible engineer’s approval.
 
 ## Architecture
 
@@ -408,7 +408,7 @@ KYNEX is not:
 ## SIH context
 
 - **Team:** GLITCH (SIH031)
-- **Problem context:** SIH26099 â€” material identity and catalogue harmonization
+- **Problem context:** SIH26099 — material identity and catalogue harmonization
 - **Domain:** CPSE / industrial procurement and material-master governance
 - **Sponsor context:** Chennai Petroleum Corporation Limited and the Ministry of Petroleum & Natural Gas
 
@@ -416,7 +416,7 @@ KYNEX is not:
 
 Changes that affect matching, conflict rules, abstention, export, publication, or authorization should include reproducible evidence and documentation updates. Do not publish credentials, confidential datasets, proprietary material masters, or exploitable security details in public issues.
 
-Security concerns should be reported privately through GitHubâ€™s repository security process.
+Security concerns should be reported privately through GitHub’s repository security process.
 
 ## License and data policy
 
