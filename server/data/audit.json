@@ -1,0 +1,26 @@
+[
+  {
+    "event": "expert_decision",
+    "requestId": "RES-MTO4H9Z8",
+    "action": "request_clarification",
+    "actor": "smoke-test",
+    "createdAt": "2026-09-05T08:30:10.677Z",
+    "immutableLegacyRecords": true
+  },
+  {
+    "event": "resolution",
+    "requestId": "RES-MTO4H9ZM",
+    "createdAt": "2026-09-05T08:30:10.642Z",
+    "status": "conflict",
+    "decision": "DO_NOT_MERGE",
+    "commonCode": "CNMC-VALVE-GATE-SS-050-PN16"
+  },
+  {
+    "event": "resolution",
+    "requestId": "RES-MTO4H9Z8",
+    "createdAt": "2026-09-05T08:30:10.628Z",
+    "status": "near_duplicate",
+    "decision": "RECOMMEND_FOR_EXPERT_REVIEW",
+    "commonCode": "CNMC-VALVE-GATE-SS-050-PN16"
+  }
+]

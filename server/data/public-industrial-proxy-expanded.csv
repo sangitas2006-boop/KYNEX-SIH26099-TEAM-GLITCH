@@ -1,0 +1,31 @@
+org,code,description,plant,event_year,entity_key,erp_system,family
+CPCL,4957084984,"Plug Vlv Jkt A216 Wcb Fl 150 8x6 In; jacketed plug valve; flanged B16.5 RF; bolted bonnet; gear operated; BS 5353; VMS 552323",Manali Refinery,2026,public_tender_C22M260007_item_4957084984,public_GeM_tender,valve
+CPCL,4957080014,"Plug Vlv Jkt A216 Wcb Fl 150 10x8 In; jacketed plug valve; flanged B16.5 RF; bolted bonnet; gear operated; BS 5353; VMS 552323",Manali Refinery,2026,public_tender_C22M260007_item_4957080014,public_GeM_tender,valve
+CPCL,4957084914,"Plug Vlv Jkt A216 Wcb Fl 150 2x3 In; jacketed plug valve; flanged B16.5 RF; bolted bonnet; gear operated; BS 5353; VMS 552323",Manali Refinery,2026,public_tender_C22M260007_item_4957084914,public_GeM_tender,valve
+CPCL,4957084974,"Plug Vlv Jkt A216 Wcb Fl 150 4x6 In; jacketed plug valve; flanged B16.5 RF; bolted bonnet; gear operated; BS 5353; VMS 552323",Manali Refinery,2026,public_tender_C22M260007_item_4957084974,public_GeM_tender,valve
+SJVN,PPR-O&M-RHPS-790-ITEM-03,"Bearing Housing Out Board; CI IS-210 FG 260; drawing item 03; cooling water pump spare",Rampur HPS,2025,public_tender_PPR_O&M_RHPS_790_item_03,public_GeM_tender,pump_spare
+SJVN,PPR-O&M-RHPS-790-ITEM-15,"Impeller; SS CF 8M; ASTM A743; drawing item 15; cooling water pump spare",Rampur HPS,2025,public_tender_PPR_O&M_RHPS_790_item_15,public_GeM_tender,pump_spare
+SJVN,PPR-O&M-RHPS-790-ITEM-22,"Seal Cover housing; Cast Steel ASTM A216 Grade WCB; drawing item 22; cooling water pump spare",Rampur HPS,2025,public_tender_PPR_O&M_RHPS_790_item_22,public_GeM_tender,pump_spare
+SJVN,PPR-O&M-RHPS-790-ITEM-26,"Bearing Housing In Board; CI IS-210 FG 260; drawing item 26; cooling water pump spare",Rampur HPS,2025,public_tender_PPR_O&M_RHPS_790_item_26,public_GeM_tender,pump_spare
+SJVN,PPR-O&M-RHPS-790-ITEM-28,"Shaft; SS 410; drawing item 28; cooling water pump spare",Rampur HPS,2025,public_tender_PPR_O&M_RHPS_790_item_28,public_GeM_tender,pump_spare
+SJVN,PPR-O&M-RHPS-790-ITEM-30,"Cover for bearing housing; CI IS-210 FG 260; drawing item 30; cooling water pump spare",Rampur HPS,2025,public_tender_PPR_O&M_RHPS_790_item_30,public_GeM_tender,pump_spare
+SJVN,PPR-O&M-RHPS-790-ITEM-34,"Stuffing Box Bushing; Cast Steel ASTM A216 Grade WCB; drawing item 34; cooling water pump spare",Rampur HPS,2025,public_tender_PPR-O&M_RHPS_790_item_34,public_GeM_tender,pump_spare
+SJVN,PPR-O&M-RHPS-790-ITEM-53,"Flexible coupling; Cast Iron; drawing item 53; cooling water pump spare",Rampur HPS,2025,public_tender_PPR_O&M_RHPS_790_item_53,public_GeM_tender,pump_spare
+IOCL,HBP-LPG-25-26-L01,"Pressure Safety Valve; A216 WCB body; SS316 internals; flanged end; 3/4 x 1 inch; 300 class",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_01,public_GeM_tender,valve
+IOCL,HBP-LPG-25-26-L02,"Ball Valve; DN20; threaded; 800 class; body ASTM A105; ball SS316; BLV101D",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_02,public_GeM_tender,valve
+IOCL,HBP-LPG-25-26-L03,"Ball Valve; DN15; threaded; 800 class; body ASTM A105; ball SS316; BLV101D",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_03,public_GeM_tender,valve
+IOCL,HBP-LPG-25-26-L04,"Ball Valve; DN25; threaded; 800 class; body ASTM A105; ball SS316; BLV101D",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_04,public_GeM_tender,valve
+IOCL,HBP-LPG-25-26-L05,"Seamless pipe; Schedule 160; diameter 20 mm; 300 class",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_05,public_GeM_tender,pipe
+IOCL,HBP-LPG-25-26-L06,"Seamless pipe; Schedule 160; diameter 15 mm; 300 class",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_06,public_GeM_tender,pipe
+IOCL,HBP-LPG-25-26-L08,"Carbon steel tee; socket welded; A105; ASME B16.11; equal tee; 25 NB; 3000 class",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_08,public_GeM_tender,fitting
+IOCL,HBP-LPG-25-26-L09,"Socket welded 90 degree elbow; A105; ASME B16.11; 25 NB; 3000 class",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_09,public_GeM_tender,fitting
+IOCL,HBP-LPG-25-26-L11,"Globe Valve; DN20; socket welded; 800 class; body and bonnet ASTM A105; 13 percent chromium; GLV101D",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_11,public_GeM_tender,valve
+IOCL,HBP-LPG-25-26-L12,"Slip-on flange; A105; ASME B16.5 RF; 125AARH finish; 20 NB; 300 class",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_12,public_GeM_tender,flange
+IOCL,HBP-LPG-25-26-L15,"Spiral gasket; ASME B16.20; 20 NB; 300 class",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_15,public_GeM_tender,gasket
+IOCL,HBP-LPG-25-26-L17,"Studs and nut with washer; 16 mm x 80 mm; ANSI ASME B16.5 Class 300",Haridwar Bottling Plant,2025,public_tender_HBP_LPG_PS_PT_GEM_25_26_item_17,public_GeM_tender,fastener
+BPCL,76.13.80.013.5,"Elbow butt-welded; alloy steel; ANSI B16.9; ASTM A234 Grade WP22-W Class 1; 90 degree; IBR; 54 mm thickness; 500 NB",Kochi Refinery,2025,public_tender_CRFQ_1000448165_item_00010,public_GeM_tender,fitting
+BPCL,76.13.80.014.5,"Elbow butt-welded; alloy steel; ANSI B16.9; ASTM A234 Grade WP22 Class 1; 90 degree; IBR; Schedule 160; 250 NB",Kochi Refinery,2025,public_tender_CRFQ_1000448165_item_00020,public_GeM_tender,fitting
+BPCL,76.13.80.015.5,"Elbow butt-welded; alloy steel; ANSI B16.9; ASTM A234 Grade WP22 Class 1; 90 degree; IBR; Schedule XXS; 20 NB",Kochi Refinery,2025,public_tender_CRFQ_1000448165_item_00030,public_GeM_tender,fitting
+BPCL,76.14.67.003.5,"Equal tee butt-welded; alloy steel; ANSI B16.9; ASTM A234 Grade WP22 Class 1; Schedule 160; IBR; 250 NB",Kochi Refinery,2025,public_tender_CRFQ_1000448165_item_00060,public_GeM_tender,fitting
+BPCL,76.14.20.986.5,"Concentric reducer; alloy steel; ANSI B16.9; ASTM A234 Grade WP22 Class 1; IBR; 54/44 mm thickness; 500/400 NB",Kochi Refinery,2025,public_tender_CRFQ_1000448165_item_00070,public_GeM_tender,fitting
+BPCL,76.13.61.006.5,"Weldolet; alloy steel; MSS-SP97; ASTM A182 Grade F22 Class 3; IBR; 500/20 NB",Kochi Refinery,2025,public_tender_CRFQ_1000448165_item_00110,public_GeM_tender,fitting

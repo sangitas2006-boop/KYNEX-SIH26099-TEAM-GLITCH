@@ -1,0 +1,12 @@
+row_key,query,expected_code,label,plant,event_year,entity_key,split
+b001,"SS GATE VALVE 2 IN PN16 FLG",CPCL-VLV-04182,exact_duplicate,Manali Refinery,2025,gate-valve-ss50-pn16,plant_test
+b002,"GATE VLV SS316 DN50 PN16 FLANGED",SAIL-VALVE-G50-16,near_duplicate,Bhilai Steel Plant,2025,gate-valve-ss50-pn16,plant_test
+b003,"VALVE GATE 50MM SS PN25 FLG",NTPC-VLV-3307,exact_duplicate,Ramagundam STPS,2024,gate-valve-ss50-pn25,time_test
+b004,"CARBON STEEL GATE VALVE DN50 PN16",IOCL-VLV-2201,exact_duplicate,Panipat Refinery,2023,gate-valve-cs50-pn16,train
+b005,"SS GATE VALVE 2 IN PN18 FLG",,conflict,Manali Refinery,2026,unseen-pressure,unseen_entity_test
+b006,"SS HEX BOLT M10 X 50 MM",BPCL-BLT-M10-50,exact_duplicate,Mumbai Refinery,2025,bolt-ss-m10-50,train
+b007,"STAINLESS STEEL WEDGE VALVE DN50 PN16",CPCL-VLV-04182,functional_equivalent,Kochi Refinery,2026,unseen-plant-valve,unseen_entity_test
+b008,"SS316 CLOSED PUMP IMPELLER 200MM",HPCL-IMP-200,exact_duplicate,Visakh Refinery,2022,impeller-ss200,time_test
+b009,"SS GATE VALVE 2 IN PN17 FLG",,conflict,R&D Pilot Plant,2026,unseen-pressure-2,unseen_entity_test
+b010,"SS GATE VALVE 2 IN FLG",,insufficient_evidence,Manali Refinery,2026,missing-pressure,plant_test
+b011,"GATE VALVE DN50",,ambiguous,Unknown Plant,2026,ambiguous-gate-valve,time_test

@@ -1,0 +1,41 @@
+.media-fallback {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  min-height: 300px;
+  padding: 28px;
+  border: 1px solid rgba(21, 59, 58, .12);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255, 252, 246, .92), rgba(242, 235, 221, .82));
+  color: #526b67;
+  text-align: center;
+}
+
+.media-fallback strong {
+  color: #153b3a;
+  font-size: 14px;
+}
+
+.media-fallback > span:last-child {
+  max-width: 220px;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.media-fallback-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(198, 155, 74, .45);
+  border-radius: 50%;
+  color: #9c6f20;
+  background: rgba(255, 248, 234, .78);
+}
+
+@media (max-width: 640px) {
+  .media-fallback {
+    min-height: 220px;
+  }
+}

@@ -1,0 +1,9 @@
+[
+  {"id":"api-600","family":"valve","title":"API 600","scope":"Bolted bonnet steel gate valves","version":"2021","owner":"Engineering standards steward","status":"reference","blockingFields":["type","material","pressureClass","nominalDiameterMm"]},
+  {"id":"asme-b16-34","family":"valve","title":"ASME B16.34","scope":"Valves, flanged, threaded and welding end","version":"2022","owner":"Engineering standards steward","status":"reference","blockingFields":["type","pressureClass","connection","material"]},
+  {"id":"asme-b16-5","family":"valve","title":"ASME B16.5","scope":"Pipe flanges and flanged fittings","version":"2022","owner":"Engineering standards steward","status":"reference","blockingFields":["connection","nominalDiameterMm","pressureClass"]},
+  {"id":"asme-b18-2-1","family":"fastener","title":"ASME B18.2.1","scope":"Square and hex bolts and screws","version":"2012","owner":"Engineering standards steward","status":"reference","blockingFields":["type","material","nominalDiameterMm"]},
+  {"id":"iso-898-1","family":"fastener","title":"ISO 898-1","scope":"Mechanical properties of fasteners","version":"2013","owner":"Engineering standards steward","status":"reference","blockingFields":["material","type"]},
+  {"id":"api-610","family":"pump","title":"API 610","scope":"Centrifugal pumps for petroleum, petrochemical and natural gas industries","version":"2021","owner":"Engineering standards steward","status":"reference","blockingFields":["type","material","nominalDiameterMm"]},
+  {"id":"iso-5199","family":"pump","title":"ISO 5199","scope":"Technical specifications for centrifugal pumps","version":"2002","owner":"Engineering standards steward","status":"reference","blockingFields":["type","nominalDiameterMm"]}
+]

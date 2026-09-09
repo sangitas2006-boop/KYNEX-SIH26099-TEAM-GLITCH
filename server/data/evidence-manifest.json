@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "kynex-evidence-manifest-v1",
+  "updatedAt": "2026-09-09",
+  "claimPolicy": {
+    "development_fixture": "Use for engine, UI, and workflow validation only.",
+    "public_procurement_proxy": "Use for schema, lineage, ingestion, and conflict-firewall testing only; do not present as CPSE ERP performance.",
+    "authorized_cpse": "Only this tier can support CPSE performance or operational-impact claims."
+  },
+  "sources": [
+    {
+      "id": "development-benchmark-v1",
+      "tier": "development_fixture",
+      "file": "server/data/labelled-benchmark-v1.csv",
+      "rows": 11,
+      "labelledRows": 11,
+      "status": "available",
+      "allowedClaims": ["engine validation", "workflow demonstration", "method debugging"]
+    },
+    {
+      "id": "public-industrial-proxy-expanded",
+      "tier": "public_procurement_proxy",
+      "file": "server/data/public-industrial-proxy-expanded.csv",
+      "rows": 30,
+      "labelledRows": 0,
+      "status": "available",
+      "allowedClaims": ["ingestion testing", "lineage testing", "conflict-firewall testing"]
+    },
+    {
+      "id": "cpcl-public-procurement-proxy",
+      "tier": "public_procurement_proxy",
+      "file": "server/data/cpcl-public-procurement-proxy.csv",
+      "rows": 4,
+      "labelledRows": 0,
+      "status": "available",
+      "allowedClaims": ["public-source schema and workflow testing"]
+    },
+    {
+      "id": "authorized-cpse-export",
+      "tier": "authorized_cpse",
+      "file": null,
+      "rows": null,
+      "labelledRows": null,
+      "status": "not_provided",
+      "allowedClaims": ["CPSE performance", "operational impact"]
+    }
+  ],
+  "nextEvidenceGate": "Obtain an authorized, de-identified CPSE material-master export with reviewer-adjudicated labels and a measurement protocol."
+}
