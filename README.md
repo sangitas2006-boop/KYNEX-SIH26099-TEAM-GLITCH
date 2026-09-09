@@ -60,7 +60,7 @@ npm run dev:full
 
 Open:
 
-- Frontend: [http://localhost:5173](http://localhost:5173)
+- Live website: [https://kynex-material-intelligence-s62m.onrender.com](https://kynex-material-intelligence-s62m.onrender.com)
 - API health check: [http://localhost:8787/api/health](http://localhost:8787/api/health)
 
 `dev:full` starts the Vite frontend and Node API together. The default local mode is explicit demo mode when no `.env.local` overrides it.
