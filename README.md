@@ -17,7 +17,7 @@ KYNEX does not silently overwrite source records, treat textual similarity as en
 
 *KYNEX normalizes configured technical attributes, ranks candidates, blocks critical conflicts, preserves source lineage, and routes uncertain cases for expert review.*
 
-**[Quick start](#quick-start) Â· [Website walkthrough](#website-walkthrough) Â· [How it works](#how-it-works) Â· [Safety boundary](#safety-boundary) Â· [Architecture](#architecture) Â· [Evaluation](#evaluation)**
+**[Quick start](#quick-start) · [Website walkthrough](#website-walkthrough) · [How it works](#how-it-works) · [Safety boundary](#safety-boundary) · [Architecture](#architecture) · [Evaluation](#evaluation)**
 
 ## Why KYNEX
 
