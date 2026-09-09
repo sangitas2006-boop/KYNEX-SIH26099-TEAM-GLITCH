@@ -17,7 +17,7 @@ KYNEX does not silently overwrite source records, treat textual similarity as en
 
 *KYNEX normalizes configured technical attributes, ranks candidates, blocks critical conflicts, preserves source lineage, and routes uncertain cases for expert review.*
 
-**[Quick start](#quick-start) · [Website walkthrough](#website-walkthrough) · [How it works](#how-it-works) · [Safety boundary](#safety-boundary) · [Architecture](#architecture) · [Evaluation](#evaluation)**
+**[Quick start](#quick-start) Â· [Website walkthrough](#website-walkthrough) Â· [How it works](#how-it-works) Â· [Safety boundary](#safety-boundary) Â· [Architecture](#architecture) Â· [Evaluation](#evaluation)**
 
 ## Why KYNEX
 
@@ -28,7 +28,7 @@ Most catalogue-cleaning workflows treat similarity as a merge decision. KYNEX do
 | Situation | KYNEX response |
 |---|---|
 | Similar wording or configured synonym | Retrieves and ranks candidate identities |
-| Configured unit variation, such as `2 in → DN50 / 50 mm` | Compares typed normalized attributes |
+| Configured unit variation, such as `2 in â†’ DN50 / 50 mm` | Compares typed normalized attributes |
 | Critical mismatch, such as `PN16` versus `PN25` | Blocks publication with `DO_NOT_MERGE` |
 | Missing, ambiguous, or low-margin evidence | Returns `HUMAN_REVIEW_REQUIRED` |
 | Approved expert decision | Creates a controlled exportable mapping |
@@ -61,7 +61,8 @@ npm run dev:full
 Open:
 
 - Live website: [https://kynex-material-intelligence-s62m.onrender.com](https://kynex-material-intelligence-s62m.onrender.com)
-- API health check: [http://localhost:8787/api/health](http://localhost:8787/api/health)
+- Live API health check: [https://kynex-material-intelligence-s62m.onrender.com/api/health](https://kynex-material-intelligence-s62m.onrender.com/api/health)
+- Local API health check: [http://localhost:8787/api/health](http://localhost:8787/api/health)
 
 `dev:full` starts the Vite frontend and Node API together. The default local mode is explicit demo mode when no `.env.local` overrides it.
 
@@ -106,17 +107,17 @@ npm run api
 
 ```text
 CSV / ERP export
-      ↓
+      â†“
 Schema validation and source-lineage anchor
-      ↓
+      â†“
 Typed attribute extraction and configured normalization
-      ↓
+      â†“
 Candidate retrieval and calibrated ranking
-      ↓
+      â†“
 Deterministic conflict firewall + abstention gate
-      ↓
+      â†“
 Expert review and decision history
-      ↓
+      â†“
 Approved export / Material Passport
 ```
 
@@ -169,9 +170,9 @@ KYNEX is a decision-support and governance prototype, not an autonomous merge en
 
 Supported role hierarchy:
 
-`viewer` → `reviewer` → `material_master_officer` → `admin`
+`viewer` â†’ `reviewer` â†’ `material_master_officer` â†’ `admin`
 
-KYNEX generates a proposed governed identity or cross-reference mapping. It does not create an official national material code, certify engineering interchangeability, or replace the responsible engineer’s approval.
+KYNEX generates a proposed governed identity or cross-reference mapping. It does not create an official national material code, certify engineering interchangeability, or replace the responsible engineerâ€™s approval.
 
 ## Architecture
 
@@ -331,11 +332,14 @@ The repository includes `.env.example`. For local configuration:
 Copy-Item .env.example .env.local
 ```
 
-The local default is explicit demo mode. For a connected deployment, configure:
+The local default is explicit demo mode. For a connected deployment, configure the origin that matches where the frontend is served:
 
 ```env
 KYNEX_AUTH_MODE=required
+# Local development:
 KYNEX_ALLOWED_ORIGIN=http://localhost:5173
+# Hosted Render deployment: use this value instead:
+# KYNEX_ALLOWED_ORIGIN=https://kynex-material-intelligence-s62m.onrender.com
 KYNEX_MAX_BODY_BYTES=10485760
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_PUBLISHABLE_KEY=your-publishable-key
@@ -363,7 +367,7 @@ docker build -t kynex-material-intelligence .
 docker run --env-file .env.local -p 8787:8787 kynex-material-intelligence
 ```
 
-Open the containerized application at [http://localhost:8787](http://localhost:8787). The container builds the frontend and serves the compiled client through the Node service; it does not start the Vite development server on port `5173`.
+Open the local containerized application at [http://localhost:8787](http://localhost:8787). For the hosted application, use the [live KYNEX website](https://kynex-material-intelligence-s62m.onrender.com). The container builds the frontend and serves the compiled client through the Node service; it does not start the Vite development server on port `5173`.
 
 ## Project structure
 
@@ -404,7 +408,7 @@ KYNEX is not:
 ## SIH context
 
 - **Team:** GLITCH (SIH031)
-- **Problem context:** SIH26099 — material identity and catalogue harmonization
+- **Problem context:** SIH26099 â€” material identity and catalogue harmonization
 - **Domain:** CPSE / industrial procurement and material-master governance
 - **Sponsor context:** Chennai Petroleum Corporation Limited and the Ministry of Petroleum & Natural Gas
 
@@ -412,7 +416,7 @@ KYNEX is not:
 
 Changes that affect matching, conflict rules, abstention, export, publication, or authorization should include reproducible evidence and documentation updates. Do not publish credentials, confidential datasets, proprietary material masters, or exploitable security details in public issues.
 
-Security concerns should be reported privately through GitHub’s repository security process.
+Security concerns should be reported privately through GitHubâ€™s repository security process.
 
 ## License and data policy
 
