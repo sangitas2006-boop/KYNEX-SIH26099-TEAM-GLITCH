@@ -6,3 +6,4 @@ server/data/*.sqlite-shm
 server/data/*.sqlite-wal
 *.log
 .env
+.env.*
