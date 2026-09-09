@@ -1,5 +1,5 @@
 import { createServer } from 'node:http'
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync, statSync } from 'node:fs'
 import { dirname, join, normalize } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { resolveMaterial, runBenchmark, evaluateLabelledRows, parseCsv } from './engine.mjs'
@@ -76,9 +76,10 @@ const server=createServer(async(req,res)=>{
     if(req.method==='GET'&&existsSync(distRoot)){
       const requested=decodeURIComponent(url.split('?')[0]||'/').replace(/^\/+/,'')
       const candidate=normalize(join(distRoot,requested))
-      const safe=candidate.startsWith(normalize(distRoot))&&existsSync(candidate)
-      const file=safe?candidate:join(distRoot,'index.html')
-      if(existsSync(file)){
+      const safe=candidate.startsWith(normalize(distRoot))&&existsSync(candidate)&&statSync(candidate).isFile()
+      const fallback=join(distRoot,'index.html')
+      const file=safe?candidate:fallback
+      if(existsSync(file)&&statSync(file).isFile()){
         const contentType=file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.svg')?'image/svg+xml':file.endsWith('.png')?'image/png':file.endsWith('.jpg')||file.endsWith('.jpeg')?'image/jpeg':'text/html'
         res.writeHead(200,{'content-type':contentType});return res.end(readFileSync(file))
       }
