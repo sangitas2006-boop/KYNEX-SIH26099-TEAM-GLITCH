@@ -159,13 +159,28 @@ function App() {
       return
     }
 
-    video.currentTime = 0
-    video.playbackRate = 0.58
-    video.play().catch(() => {
-      // Browser autoplay policies may prevent playback; the static atmosphere remains complete.
-    })
+    let cancelled = false
+    const startPlayback = () => {
+      if (cancelled) return
+      video.currentTime = 0
+      video.playbackRate = 0.58
+      void video.play().catch((error) => {
+        // Keep the first frame visible if a browser blocks autoplay; do not break the hero layout.
+        console.info('[KYNEX] Hero video autoplay unavailable; retaining the opening frame.', error)
+      })
+    }
 
-    return () => video.pause()
+    if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+      startPlayback()
+    } else {
+      video.addEventListener('canplay', startPlayback, { once: true })
+    }
+
+    return () => {
+      cancelled = true
+      video.removeEventListener('canplay', startPlayback)
+      video.pause()
+    }
   }, [prefersReducedMotion])
 
   const handleHeroVideoEnd = () => {
@@ -319,9 +334,10 @@ function App() {
               ref={heroVideoRef}
               className="hero-story-video"
               src="./hero-material-intelligence.mp4"
+              autoPlay
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               onLoadedMetadata={(event) => {
                 event.currentTarget.playbackRate = 0.58
               }}
