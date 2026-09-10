@@ -457,7 +457,7 @@ function App() {
         </div>
       </section>
 
-      {/* Expectation-setting primer: calibrates what is implemented vs. pilot-validated before the judge scrolls. */}
+      {/* Expectation-setting primer: calibrates what is implemented versus pilot-validated. */}
       <section className="prototype-primer section-wrap" aria-labelledby="primer-title">
         <div className="primer-frame">
           <div className="primer-main">
