@@ -79,7 +79,7 @@ function buildStaticDemoResolution(org: string, rawDescription: string): Resolut
       category: materialCase.category,
       references: [materialCase.fingerprint.standardClue, 'ASME B16.5', 'EN 1092-1'],
       status: 'reference_context',
-      note: 'Static fixture for judge walkthrough; connect the API for persisted decisions.',
+      note: 'Controlled operational preview; connect the API for persisted decisions.',
     },
     candidates,
     controls: {
@@ -96,7 +96,7 @@ function buildStaticDemoResolution(org: string, rawDescription: string): Resolut
       unit: materialCase.evidence.unitScore,
       margin: 82,
       reasons: materialCase.evidence.reasons,
-      sourceLineage: 'Static governed fixture · lineage retained',
+      sourceLineage: 'Governed preview · lineage retained',
     },
   }
 }
