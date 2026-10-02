@@ -2296,3 +2296,304 @@ body {
   height: 100%;
 }
 
+
+
+/* Evidence panel revision: flatter, quieter, and explicit about zero states. */
+.credibility-evidence-panel {
+  border-radius: 14px;
+  background: #fbfaf6;
+  box-shadow: 0 12px 30px rgba(21, 59, 58, .06);
+}
+.credibility-evidence-panel::after { display: none; }
+.credibility-panel-header { margin-bottom: 20px; }
+.credibility-panel-header h3 { letter-spacing: -.035em; }
+.credibility-source-stamp {
+  border-radius: 8px;
+  background: transparent;
+}
+
+.credibility-kpi-grid {
+  gap: 0;
+  margin-bottom: 14px;
+  border-top: 1px solid rgba(21, 59, 58, .14);
+  border-bottom: 1px solid rgba(21, 59, 58, .14);
+}
+.credibility-kpi-card {
+  min-height: 128px;
+  padding: 14px 16px;
+  border: 0;
+  border-right: 1px solid rgba(21, 59, 58, .12);
+  border-radius: 0;
+  background: transparent;
+}
+.credibility-kpi-card:last-child { border-right: 0; }
+.credibility-kpi-card::before { width: 2px; }
+.credibility-kpi-card strong { margin-top: 12px; font-size: 26px; }
+.credibility-kpi-card > span:not(.credibility-kpi-top) { min-height: 28px; }
+
+.kpi-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: #637772;
+  font-family: DM Mono, monospace;
+  font-size: 8px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.kpi-status i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5e7352;
+}
+.accent-copper .kpi-status i { background: #b75e3e; }
+.accent-brass .kpi-status i { background: #c69b4a; }
+
+.credibility-chart-grid { gap: 14px; }
+.credibility-chart-card {
+  min-height: 252px;
+  padding: 17px 18px;
+  border-radius: 12px;
+  background: #fffefa;
+}
+.chart-kicker { letter-spacing: .08em; }
+.chart-caption { font-size: 8px; }
+.benchmark-track,
+.routing-track {
+  height: 6px;
+  border-radius: 2px;
+}
+.benchmark-track::before,
+.benchmark-track::after { opacity: .55; }
+
+/* A zero result is a point at zero, not an almost-empty bar. */
+.benchmark-track.is-zero {
+  height: 12px;
+  overflow: visible;
+  background: transparent;
+}
+.benchmark-track.is-zero::before,
+.benchmark-track.is-zero::after { display: none; }
+.benchmark-track.is-zero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  bottom: auto;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b75e3e;
+}
+.benchmark-track.is-zero i { display: none; }
+
+.routing-bars { gap: 16px; padding: 18px 5px 16px; }
+.routing-track { position: relative; }
+.routing-row.is-zero .routing-track {
+  height: 12px;
+  overflow: visible;
+  background: transparent;
+}
+.routing-row.is-zero .routing-track::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border: 1px solid #b75e3e;
+  border-radius: 50%;
+  background: #fffefa;
+}
+.routing-row.is-zero .routing-track i { display: none; }
+.routing-summary { border-radius: 7px; background: rgba(94, 115, 82, .06); }
+.credibility-control-strip { border-radius: 8px; background: transparent; }
+
+@media (max-width: 900px) {
+  .credibility-kpi-card:nth-child(2) { border-right: 0; }
+  .credibility-kpi-card:nth-child(-n+2) { border-bottom: 1px solid rgba(21, 59, 58, .12); }
+}
+
+
+/* Site-wide readability pass: modestly larger support text and a slightly darker secondary tone. */
+:root {
+  --readable-secondary: #60746f;
+  --readable-subtle: #6c807a;
+  --readable-micro: #71837d;
+}
+
+/* Shared utility and supporting text across public, workspace, review, migration, and auth views. */
+.brand-text small,
+.platform-brand small,
+.platform-footer,
+.auth-brand small,
+.route-loading,
+.route-eyebrow,
+.route-kicker,
+.route-status,
+.step-tag,
+.primer-kicker,
+.primer-side > span,
+.home-route-card .home-route-index,
+.hero-frame-caption,
+.chart-kicker,
+.chart-caption,
+.benchmark-scale,
+.benchmark-caveat-pill,
+.credibility-kpi-top,
+.kpi-status,
+.credibility-source-stamp span,
+.credibility-source-stamp strong,
+.credibility-source-stamp small,
+.control-strip-label {
+  font-size: 10px;
+}
+
+.platform-brand small,
+.brand-text small,
+.auth-brand small,
+.platform-footer,
+.home-route-card > span:not(.home-route-index),
+.timeline-row small,
+.proof-stack-grid span,
+.primer-side > span,
+.route-control-list p,
+.route-panel p,
+.auth-guest-note,
+.auth-config-note {
+  color: var(--readable-secondary);
+}
+
+/* Evidence panel: make the exact details readable without turning them into headings. */
+.benchmark-scale {
+  color: #71847e;
+}
+.benchmark-metric small {
+  color: var(--readable-subtle);
+  font-size: 10px;
+}
+.chart-caption {
+  color: #71847e;
+  font-size: 9px;
+}
+.chart-footnote {
+  color: #5f746e;
+  font-size: 11px;
+}
+.routing-row > div:first-child {
+  color: #5f746e;
+  font-size: 12px;
+}
+.routing-summary {
+  font-size: 11px;
+}
+.credibility-control-strip {
+  color: #60746f;
+  font-size: 11px;
+}
+
+/* Small labels in the shared workspace and evidence cards. */
+.engine-status,
+.engine-actions,
+.text-button,
+.result-kicker,
+.decision-pill,
+.fingerprint-mini-grid span,
+.engine-reasons strong,
+.control-card h5,
+.score-card h5,
+.candidate-table-wrap h5,
+.operation-footer,
+.file-drop,
+.benchmark-model span,
+.benchmark-model small,
+.split-table h5,
+.split-grid span,
+.benchmark-safety,
+.benchmark-calibration,
+.benchmark-provenance,
+.empty-state,
+.review-row small,
+.priority-tag,
+.review-status,
+.passport-principles,
+.evidence-card-head p,
+.evidence-row span,
+.kpi-row span,
+.evidence-row small,
+.external-evidence-item span,
+.external-evidence-item small,
+.benchmark-safety-metrics span,
+.benchmark-safety-metrics small,
+.benchmark-classification span,
+.benchmark-classification small,
+.national-context-card span,
+.national-context-card a,
+.safety-story-panel b,
+.standards-card h5,
+.standards-card small,
+.standards-card em {
+  color: var(--readable-subtle);
+}
+
+.engine-status,
+.engine-actions,
+.text-button,
+.result-kicker,
+.decision-pill,
+.fingerprint-mini-grid span,
+.engine-reasons strong,
+.control-card h5,
+.score-card h5,
+.candidate-table-wrap h5,
+.operation-footer,
+.file-drop,
+.benchmark-model span,
+.benchmark-model small,
+.split-table h5,
+.split-grid span,
+.benchmark-safety,
+.benchmark-calibration,
+.benchmark-provenance,
+.empty-state,
+.review-row small,
+.priority-tag,
+.review-status,
+.passport-principles,
+.evidence-card-head p,
+.evidence-row span,
+.kpi-row span,
+.evidence-row small,
+.external-evidence-item span,
+.external-evidence-item small,
+.benchmark-safety-metrics span,
+.benchmark-safety-metrics small,
+.benchmark-classification span,
+.benchmark-classification small,
+.national-context-card span,
+.national-context-card a,
+.safety-story-panel b,
+.standards-card h5,
+.standards-card small,
+.standards-card em {
+  font-size: 10px;
+}
+
+/* Keep dense technical labels legible on smaller screens as well. */
+@media (max-width: 700px) {
+  .benchmark-metric small,
+  .chart-footnote,
+  .credibility-control-strip,
+  .routing-summary,
+  .platform-footer,
+  .timeline-row small,
+  .proof-stack-grid span,
+  .route-panel p,
+  .route-control-list p {
+    font-size: 11px;
+  }
+}

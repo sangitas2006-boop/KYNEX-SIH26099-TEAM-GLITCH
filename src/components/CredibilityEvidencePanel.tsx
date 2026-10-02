@@ -31,25 +31,25 @@ export function CredibilityEvidencePanel() {
           <div className="credibility-kpi-top"><span>Evidence dimensions</span><Database size={16} /></div>
           <strong>5/5</strong>
           <span>Lexical · technical · taxonomy · unit · lineage</span>
-          <div className="kpi-sparkline"><i style={{ width: '100%' }} /></div>
+          <div className="kpi-status"><i /> Complete evidence record</div>
         </article>
         <article className="credibility-kpi-card accent-olive">
           <div className="credibility-kpi-top"><span>Reviewable candidates</span><CheckCircle2 size={16} /></div>
           <strong>2 of 3</strong>
           <span>Routed to expert review</span>
-          <div className="kpi-sparkline"><i style={{ width: '67%' }} /></div>
+          <div className="kpi-status"><i /> 2 of 3 candidates</div>
         </article>
         <article className="credibility-kpi-card accent-copper">
           <div className="credibility-kpi-top"><span>Safety blockers</span><ShieldAlert size={16} /></div>
           <strong>1 isolated</strong>
           <span>PN25 versus PN16 conflict quarantined</span>
-          <div className="kpi-sparkline"><i style={{ width: '34%' }} /></div>
+          <div className="kpi-status"><i /> Rule gate active</div>
         </article>
         <article className="credibility-kpi-card accent-brass">
           <div className="credibility-kpi-top"><span>ERP overwrite path</span><ShieldCheck size={16} /></div>
           <strong>0</strong>
           <span>Native identifiers remain preserved</span>
-          <div className="kpi-sparkline"><i style={{ width: '100%' }} /></div>
+          <div className="kpi-status"><i /> No overwrite path</div>
         </article>
       </div>
 
@@ -65,7 +65,7 @@ export function CredibilityEvidencePanel() {
               {benchmarkMetrics.map((metric, index) => (
                 <div className={`benchmark-metric ${metric.tone}${'caveat' in metric && metric.caveat ? ' has-caveat' : ''}`} key={metric.label}>
                   <div className="benchmark-metric-heading"><span>{metric.label}</span><strong>{metric.display}</strong></div>
-                  <div className="benchmark-track"><motion.i
+                  <div className={`benchmark-track${metric.value === 0 ? ' is-zero' : ''}`} aria-label={`${metric.display} — ${metric.detail}`}><motion.i
                     initial={reduceMotion ? false : { scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: .7, delay: index * .08, ease: 'easeOut' }}
@@ -87,7 +87,7 @@ export function CredibilityEvidencePanel() {
           <div className="routing-bars">
             <div className="routing-row"><div><span>Reviewable</span><b>2</b></div><div className="routing-track"><i className="olive" style={{ width: '67%' }} /></div></div>
             <div className="routing-row"><div><span>Quarantined</span><b>1</b></div><div className="routing-track"><i className="copper" style={{ width: '34%' }} /></div></div>
-            <div className="routing-row"><div><span>Abstained</span><b>0</b></div><div className="routing-track"><i className="blue" style={{ width: '8%' }} /></div></div>
+            <div className="routing-row is-zero"><div><span>Abstained</span><b>0</b></div><div className="routing-track" aria-label="Abstained: 0"><i className="blue" style={{ width: '0%' }} /></div></div>
           </div>
           <div className="routing-summary"><ShieldCheck size={15} /><span>Rule gate active</span><strong>no silent merge</strong></div>
           <p className="chart-footnote">Every outcome is routed by evidence and governed review—not by an opaque similarity score.</p>
