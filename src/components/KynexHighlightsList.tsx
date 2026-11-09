@@ -13,7 +13,7 @@ export function KynexHighlightsList() {
     <aside className="kynex-highlights" aria-label="KYNEX decision highlights">
       <div className="kynex-highlights-list">
         {highlights.map((highlight) => (
-          <a className="kynex-highlight-item" href="#/resolve" key={highlight}>
+          <a className="kynex-highlight-item" href="/resolve" key={highlight}>
             <span className="kynex-highlight-arrow" aria-hidden="true"><ArrowRight size={14} strokeWidth={2.5} /></span>
             <span>{highlight}</span>
           </a>

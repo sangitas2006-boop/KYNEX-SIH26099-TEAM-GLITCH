@@ -1,3 +1,44 @@
+## Server-side rendering (current setup)
+
+KYNEX now uses React SSR for the public home page (`/`) and sign-in page (`/login`). React hydrates those pages in the browser so menus, dialogs, the video, and the 3D model remain interactive. The home page is now public; workspace entry still goes through the existing session checks.
+
+The workspace routes (`/resolve`, `/review`, `/migration`, `/governance`, `/evidence`) return a loading shell from the server. Browser-side auth then opens sign-in or the workspace. No private workspace data is rendered into the initial HTML. This is hybrid rendering, not authenticated-page SSR. The existing API authentication and demo-role configuration have not been tightened or replaced by this migration.
+
+Use Node 24, as in the Dockerfile, because the API uses Node's built-in SQLite support.
+
+### Local development
+
+```powershell
+npm run dev -- --host 127.0.0.1 --port 4182
+```
+
+Open the URL printed by the server. This single command serves both SSR pages and the API, with Vite middleware for development. Stop an older process using that port first, or choose a different port. The default port is 5173. `npm run dev:full` is an alias for the same integrated development setup.
+
+### Production
+
+```powershell
+npm run build
+npm start
+```
+
+The default production port is 8787; `PORT` and `HOST` can override it. The build writes browser assets to `dist/client` and the renderer to `dist/server`. Run the Node server; publishing only static files will not provide SSR. The existing Dockerfile builds both bundles and starts this Node server. Docker execution was not tested during the migration.
+
+Public Supabase URL and publishable key settings can still be supplied at build time (`VITE_SUPABASE_URL` / `VITE_SUPABASE_PUBLISHABLE_KEY`) or runtime (`SUPABASE_URL` / `SUPABASE_PUBLISHABLE_KEY`). Never put service-role keys in publishable configuration. Login state stays browser-side; secure server-side sessions would be a separate migration.
+
+### Verification
+
+With the production server running:
+
+```powershell
+node scripts/test-ssr.mjs http://127.0.0.1:8787
+```
+
+These read-only checks cover rendered public HTML, workspace shells, 404s, API health, video byte ranges, and static-file boundaries. They do not validate a real Supabase login, deployment, or production load. Old `#/resolve`-style links are redirected in the browser to normal paths.
+
+The older implementation notes below describe the project before this SSR change. For rendering, build paths, and startup commands, use the section above.
+
+---
+
 # KYNEX
 ### Material Identity Resolution for Industrial Procurement Data
 

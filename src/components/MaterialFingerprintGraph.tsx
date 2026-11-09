@@ -4,7 +4,7 @@ import { Center, Float, OrbitControls, useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 
 function ImportedMaterialModel({ reducedMotion }: { reducedMotion: boolean }) {
-  const { scene } = useGLTF('./model2.glb')
+  const { scene } = useGLTF('/model2.glb')
   const model = useMemo(() => scene.clone(true), [scene])
   const group = useRef<THREE.Group>(null)
 
@@ -101,4 +101,4 @@ export function MaterialFingerprintGraph() {
   )
 }
 
-useGLTF.preload('./model2.glb')
+useGLTF.preload('/model2.glb')

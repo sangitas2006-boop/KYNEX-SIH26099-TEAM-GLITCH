@@ -31,10 +31,12 @@ function friendlyAuthError(message: string) {
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState<AuthMode>('loading')
+  const [configured, setConfigured] = useState(false)
   const [session, setSession] = useState<Session | null>(null)
 
   useEffect(() => {
     let mounted = true
+    setConfigured(isSupabaseConfigured)
 
     if (!isSupabaseConfigured || !supabase) {
       setMode(window.localStorage.getItem(GUEST_STORAGE_KEY) === 'true' ? 'guest' : 'signed_out')
@@ -72,7 +74,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     user: session?.user ?? null,
     isGuest: mode === 'guest',
     isAuthenticated: mode === 'authenticated',
-    supabaseConfigured: isSupabaseConfigured,
+    supabaseConfigured: configured,
     continueAsGuest: () => {
       window.localStorage.setItem(GUEST_STORAGE_KEY, 'true')
       setMode('guest')
@@ -108,7 +110,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setSession(null)
       setMode('signed_out')
     },
-  }), [mode, session])
+  }), [mode, session, configured])
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

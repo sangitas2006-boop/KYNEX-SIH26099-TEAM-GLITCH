@@ -1,20 +1,23 @@
+import { createWebHandler } from './web.mjs'
 import { createServer } from 'node:http'
-import { readFileSync, existsSync, statSync } from 'node:fs'
-import { dirname, join, normalize } from 'node:path'
+import { readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { resolveMaterial, runBenchmark, evaluateLabelledRows, parseCsv } from './engine.mjs'
 import { db, createResolution, createReview, listReviews, updateReview, listPolicies, addAudit, listAudit, createDataset, insertRecords, createExport, createPassport, getPassport, createBenchmarkSet, insertBenchmarkRows, listBenchmarkSets, getBenchmarkRows, createMeasurement, listMeasurements } from './db.mjs'
 import { authenticate, authSummary, hasRole } from './auth.mjs'
 
 const serverRoot=dirname(fileURLToPath(import.meta.url))
-const distRoot=join(serverRoot,'..','dist')
+const development = process.argv.includes('--dev')
 const readRegistry=(name)=>JSON.parse(readFileSync(join(serverRoot,'data',name),'utf8'))
 const standardsRegistry=readRegistry('standards.json')
 const evidenceRegistry=readRegistry('evidence.json')
 const kpiRegistry=readRegistry('pilot-kpis.json')
 const evidenceManifest=readRegistry('evidence-manifest.json')
 
-const PORT = Number(process.env.PORT || 8787)
+const portIndex = process.argv.indexOf('--port')
+const PORT = Number((portIndex >= 0 ? process.argv[portIndex + 1] : '') || process.env.PORT || (development ? 5173 : 8787))
+let handleWeb
 const ALLOWED_ORIGIN = process.env.KYNEX_ALLOWED_ORIGIN || 'http://localhost:5173'
 const MAX_BODY_BYTES = Number(process.env.KYNEX_MAX_BODY_BYTES || 10 * 1024 * 1024)
 const protectedMethods=new Set(['POST','PUT','PATCH','DELETE'])
@@ -73,26 +76,11 @@ const server=createServer(async(req,res)=>{
                                             if(!hasRole(identity,'material_master_officer'))return json(res,403,{error:'Passport issuance requires the material_master_officer role'});const payload=await readBody(req);if(!payload.commonCode)return json(res,400,{error:'commonCode is required'});const passport=createPassport(payload.commonCode,payload.payload||{},payload.status||'certified');addAudit({event:'passport_issued',actor:identity.actor,action:'publish',details:{commonCode:payload.commonCode,status:passport.status,role:identity.role}});return json(res,201,{...passport,actor:identity.actor,role:identity.role})
                       }
                       if(req.method==='GET'&&url.startsWith('/api/passports/')){const passport=getPassport(routeId(url,'/api/passports/'));return passport?json(res,200,passport):json(res,404,{error:'Passport not found'})}
-                      if(req.method==='GET'&&existsSync(distRoot)){
-                                            const requested=decodeURIComponent(url.split('?')[0]||'/').replace(/^\/+/,'')
-                                            const candidate=normalize(join(distRoot,requested))
-                                            const safe=candidate.startsWith(normalize(distRoot))&&existsSync(candidate)&&statSync(candidate).isFile()
-                                            const fallback=join(distRoot,'index.html')
-                                            const file=safe?candidate:fallback
-                                            if(existsSync(file)&&statSync(file).isFile()){
-                                                                            const contentType=file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.svg')?'image/svg+xml':file.endsWith('.png')?'image/png':file.endsWith('.jpg')||file.endsWith('.jpeg')?'image/jpeg':'text/html'
-                                                                            res.writeHead(200,{'content-type':contentType});
-                                                                            let body=readFileSync(file)
-                                                                            if(file===fallback&&contentType==='text/html'){
-                                                                                                                        const runtimeConfig={supabaseUrl:process.env.SUPABASE_URL||'',supabasePublishableKey:process.env.SUPABASE_PUBLISHABLE_KEY||''}
-                                                                                                                        const runtimeScript=`<script>window.__KYNEX_CONFIG__=${JSON.stringify(runtimeConfig)}</script>`
-                                                                                                                        body=Buffer.from(body.toString('utf8').replace('</head>',`${runtimeScript}</head>`))
-                                                                                }
-                                                                            return res.end(body)
-                                            }
-                      }
+                      if (!url.startsWith('/api/') && url !== '/api') return await handleWeb(req,res)
                       return json(res,404,{error:'Not found'})
         }catch(error){return json(res,400,{error:error instanceof Error?error.message:'Invalid request'})}
 })
-server.listen(
-    PORT,()=>console.log('KYNEX server listening on '+PORT))
+handleWeb = await createWebHandler({ server, dev: development, root: join(serverRoot, '..') })
+const hostIndex = process.argv.indexOf('--host')
+const HOST = (hostIndex >= 0 ? process.argv[hostIndex + 1] : '') || process.env.HOST || '0.0.0.0'
+server.listen(PORT, HOST, () => console.log(`KYNEX ${development ? 'SSR development' : 'SSR production'} server: http://${HOST === '0.0.0.0' ? 'localhost' : HOST}:${PORT}`))

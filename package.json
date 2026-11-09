@@ -4,12 +4,14 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "node --env-file-if-exists=.env.local server/index.mjs --dev",
     "api": "node --env-file-if-exists=.env.local server/index.mjs",
-    "dev:full": "node scripts/dev-full.mjs",
-    "build": "tsc && vite build",
+    "dev:full": "npm run dev",
+    "build": "tsc && vite build --outDir dist/client && vite build --ssr src/entry-server.tsx --outDir dist/server",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "npm run start",
+    "start": "node --env-file-if-exists=.env.local server/index.mjs",
+    "test:ssr": "node scripts/test-ssr.mjs"
   },
   "dependencies": {
     "@number-flow/react": "^0.6.2",

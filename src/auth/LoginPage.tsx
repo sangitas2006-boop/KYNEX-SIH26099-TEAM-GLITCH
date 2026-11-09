@@ -51,7 +51,7 @@ export function LoginPage() {
       <div className="auth-atmosphere" aria-hidden="true" />
       <div className="auth-shell">
         <section className="auth-story">
-          <a className="auth-brand" href="#/" aria-label="KYNEX home">
+          <a className="auth-brand" href="/" aria-label="KYNEX home">
             <span className="auth-brand-mark"><img src="/kynex-logo.png" alt="" /></span>
             <span><strong>KYNEX</strong><small>Material identity resolution platform</small></span>
           </a>

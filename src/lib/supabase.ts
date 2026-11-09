@@ -17,7 +17,7 @@ const supabasePublishableKey = (import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabasePublishableKey)
 
-export const supabase = isSupabaseConfigured
+export const supabase = typeof window !== 'undefined' && isSupabaseConfigured
   ? createClient(supabaseUrl!, supabasePublishableKey!, {
           auth: {
                     persistSession: true,
